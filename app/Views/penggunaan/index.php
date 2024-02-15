@@ -107,7 +107,7 @@
         $('#table1').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?php echo base_url(); ?>/penggunaan/getDataFiltered",
+                "url": "<?= base_url(); ?>penggunaan/getDataFiltered",
                 "type": "POST",
                 "data": function(d){
                     d.date = selectedDate;

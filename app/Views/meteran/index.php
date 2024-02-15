@@ -136,7 +136,7 @@
 
     function getOption() {
         $.ajax({
-            url: "<?php echo base_url(); ?>/meteran/getPelanggan",
+            url: "<?= base_url(); ?>meteran/getPelanggan",
             dataType: 'json',
             success: function(result) {
                 $.each(result.data, function(index, value){
@@ -152,7 +152,7 @@
 
     function editData(id) {
         $.ajax({
-            url: "<?php echo base_url(); ?>/meteran/getData/"+id,
+            url: "<?= base_url(); ?>meteran/getData/"+id,
             dataType: 'json',
             success: function(result) {
                 $('#inlineForm input[name="id"]').val(result.data.id);

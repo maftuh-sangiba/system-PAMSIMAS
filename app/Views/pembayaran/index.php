@@ -112,7 +112,7 @@
         $('#table1').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?php echo base_url(); ?>/pembayaran/getDataFiltered",
+                "url": "<?= base_url(); ?>pembayaran/getDataFiltered",
                 "type": "POST",
                 "data": function(d){
                     d.date = selectedDate;
@@ -189,7 +189,7 @@
         $('#table1').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?php echo base_url(); ?>/pembayaran/getDataFiltered",
+                "url": "<?= base_url(); ?>pembayaran/getDataFiltered",
                 "type": "POST",
                 "data": function(d){
                     d.date = selectedDate;

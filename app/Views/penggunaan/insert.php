@@ -139,7 +139,7 @@
 
     function getData(date){
         $.ajax({
-            url: "<?php echo base_url(); ?>/penggunaan/getAllMeteran",
+            url: "<?= base_url(); ?>penggunaan/getAllMeteran",
             type: "POST",
             data: {
                 date: date,

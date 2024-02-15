@@ -61,7 +61,7 @@
                                         <a href='javascript:void(0);' onClick='editData(".$value->id.")' class='btn icon icon-left btn-primary'>
                                             <i class='bi bi-pencil-square'></i> Edit
                                         </a>
-                                        <a href='/pelanggan/delete/".$value->id."' class='btn icon icon-left btn-danger'>
+                                        <a href='pelanggan/delete/".$value->id."' class='btn icon icon-left btn-danger'>
                                             <i class='bi bi-trash'></i> Hapus
                                         </a>
                                     </td>
@@ -137,7 +137,7 @@
 
     function editData(id) {
         $.ajax({
-            url: "<?php echo base_url(); ?>/pelanggan/getData/"+id,
+            url: "<?php echo base_url(); ?>pelanggan/getData/"+id,
             dataType: 'json',
             success: function(result) {
                 $('#inlineForm input[name="user_id"]').val(result.data.id);

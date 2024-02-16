@@ -49,7 +49,13 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
     $routes->get('saldo', 'Saldo::index');
 });
 
+
 $routes->group('api', function ($routes) {
-    $routes->post('check', 'Api\Pembayaran::check');
-    $routes->post('pay', 'Api\Pembayaran::pay');
+    $routes->post('login', 'Api\Login::login');
+    $routes->post('checkToken', 'Api\Login::checkToken');
+    
+    $routes->group('pembayaran', ['filter' => 'authApi'], function ($routes) {
+        $routes->post('check', 'Api\Pembayaran::check');
+        $routes->post('pay', 'Api\Pembayaran::pay');
+    });
 });

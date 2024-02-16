@@ -1,3 +1,4 @@
 writable/session/*
 writable/logs/*
 writable/debugbar/*
+vendor/*

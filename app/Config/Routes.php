@@ -50,6 +50,6 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
 });
 
 $routes->group('api', function ($routes) {
-    $routes->get('check', 'Api\Pembayaran::check');
-    $routes->get('pay', 'Api\Pembayaran::pay');
+    $routes->post('check', 'Api\Pembayaran::check');
+    $routes->post('pay', 'Api\Pembayaran::pay');
 });

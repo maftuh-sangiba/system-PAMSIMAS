@@ -54,8 +54,19 @@ class Pembayaran extends BaseController
 
     public function pay()
     {
-        $id = $this->request->getPost('id_pembayaran');
-        $jumlah = $this->request->getPost('jumlah');
+        $id = $this->request->getVar('id_pembayaran');
+        $jumlah = $this->request->getVar('jumlah');
+
+        $findPelanggan = $this->modelPembayaran->find($id);
+
+        if (!$findPelanggan) {
+            return $this->respond(
+                array(
+                    'status' => 'error',
+                    'msg' => 'Data pembayaran tidak ditemukan atau sudah dibayarkan'
+                )
+            );
+        }
 
         $idPelanggan = $this->modelPembayaran->getPelanggan($id);
         $biaya = $this->modelPembayaran->getPerluDibayar($id)->biaya;
@@ -137,7 +148,7 @@ class Pembayaran extends BaseController
 
                 return $this->respond(
                     array(
-                        'status' => 'success',
+                        'status' => 'error',
                         'msg' => 'Gagal melakukan pembayaran'
                     )
                 );
@@ -175,7 +186,7 @@ class Pembayaran extends BaseController
                 if (!$pembayaranResult) {
                     return $this->respond(
                         array(
-                            'status' => 'success',
+                            'status' => 'error',
                             'msg' => 'Gagal melakukan pembayaran'
                         )
                     );
@@ -198,7 +209,7 @@ class Pembayaran extends BaseController
 
                 return $this->respond(
                     array(
-                        'status' => 'success',
+                        'status' => 'error',
                         'msg' => 'Gagal melakukan pembayaran'
                     )
                 );

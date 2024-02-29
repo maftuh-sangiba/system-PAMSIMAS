@@ -7,7 +7,7 @@
             <h3>Selamat datang <span class="text-primary"><?= $name ?></span></h3>
         </div>
         <div class="col text-end">
-            <a href="/logout" class="btn btn-danger"><i class="bi bi-power"></i><span> Logout</span></a>
+            <a href="<?= base_url() ?>logout" class="btn btn-danger"><i class="bi bi-power"></i><span> Logout</span></a>
         </div>
     </div>
 </div>
@@ -90,7 +90,7 @@
                 <div class="card-body py-4 px-4">
                     <div class="d-flex align-items-center">
                         <div class="avatar avatar-xl">
-                            <img src="/assets/images/faces/1.jpg" alt="Face 1">
+                            <img src="<?= base_url() ?>public/assets/images/faces/1.jpg" alt="Face 1">
                         </div>
                         <div class="ms-3 name">
                             <h5 class="font-bold"><?= $name ?></h5>
@@ -117,7 +117,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/assets/vendors/apexcharts/apexcharts.js"></script>
+<script src="<?= base_url() ?>public/assets/vendors/apexcharts/apexcharts.js"></script>
 <!-- <script src="/assets/js/pages/dashboard.js"></script> -->
 <script>
     var monthlyBiayaCount = <?= json_encode($total) ?>;

@@ -35,7 +35,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form" action="/penggunaan/store" method="post">
+                            <form class="form" action="<?= base_url() ?>penggunaan/store" method="post">
                                 <div class="row">
                                     <div class="row">
                                         <h4>Bulan</h4>
@@ -102,7 +102,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('styles') ?>
-<link rel="stylesheet" href="/assets/vendors/simple-datatables/style.css">
+<link rel="stylesheet" href="<?= base_url() ?>public/assets/vendors/simple-datatables/style.css">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <style>
     input::-webkit-outer-spin-button,
@@ -120,8 +120,8 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/assets/vendors/simple-datatables/simple-datatables.js"></script>
-<script src="/assets/js/jquery-3.7.1.js"></script>
+<script src="<?= base_url() ?>public/assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script src="<?= base_url() ?>public/assets/js/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -139,7 +139,7 @@
 
     function getData(date){
         $.ajax({
-            url: "<?= base_url(); ?>penggunaan/getAllMeteran",
+            url: "<?= base_url() ?>penggunaan/getAllMeteran",
             type: "POST",
             data: {
                 date: date,

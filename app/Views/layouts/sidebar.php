@@ -34,7 +34,7 @@ $currentUri = $uri[0];
                 </li>
 
                 <li class="sidebar-item <?= ($currentUri == 'meteran') ? 'active' : '' ?>">
-                    <a href="/meteran" class='sidebar-link'>
+                    <a href="<?= base_url() ?>meteran" class='sidebar-link'>
                         <i class="bi bi-speedometer"></i>
                         <span>Data Meteran</span>
                     </a>

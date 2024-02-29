@@ -66,7 +66,7 @@
                             <i data-feather="x"></i>
                         </button>
                     </div>
-                    <form action="/pembayaran/bayar" method="post">
+                    <form action="<?= base_url() ?>pembayaran/bayar" method="post">
                         <div class="modal-body">
                             <input type="hidden" name="user_id" id="user_id">
                             <label>Bayar :</label>
@@ -101,7 +101,7 @@
 
 <?= $this->section('javascript') ?>
 <!-- <script src="/assets/vendors/simple-datatables/simple-datatables.js"></script> -->
-<script src="/assets/js/jquery-3.7.1.js"></script>
+<script src="<?= base_url() ?>public/assets/js/jquery-3.7.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script>
     $(document).ready(async function() {
@@ -112,7 +112,7 @@
         $('#table1').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?= base_url(); ?>pembayaran/getDataFiltered",
+                "url": "<?= base_url() ?>pembayaran/getDataFiltered",
                 "type": "POST",
                 "data": function(d){
                     d.date = selectedDate;
@@ -189,7 +189,7 @@
         $('#table1').DataTable({
             "processing": true,
             "ajax": {
-                "url": "<?= base_url(); ?>pembayaran/getDataFiltered",
+                "url": "<?= base_url() ?>pembayaran/getDataFiltered",
                 "type": "POST",
                 "data": function(d){
                     d.date = selectedDate;

@@ -59,7 +59,7 @@
                                         <a href='javascript:void(0);' onClick='editData(".$value->id.")' class='btn icon icon-left btn-primary'>
                                             <i class='bi bi-pencil-square'></i> Edit
                                         </a>
-                                        <a href='/meteran/delete/".$value->id."' class='btn icon icon-left btn-danger'>
+                                        <a href='".base_url()."meteran/delete/".$value->id."' class='btn icon icon-left btn-danger'>
                                             <i class='bi bi-trash'></i> Hapus
                                         </a>
                                     </td>
@@ -85,7 +85,7 @@
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                <form action="/meteran/store" method="post">
+                <form action="<?= base_url() ?>meteran/store" method="post">
                     <div class="modal-body">
                         <input type="hidden" name="id" id="id">
 
@@ -125,7 +125,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('javascript') ?>
-<script src="/assets/js/jquery-3.7.1.js"></script>
+<script src="<?= base_url() ?>public/assets/js/jquery-3.7.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
@@ -136,7 +136,7 @@
 
     function getOption() {
         $.ajax({
-            url: "<?= base_url(); ?>meteran/getPelanggan",
+            url: "<?= base_url() ?>meteran/getPelanggan",
             dataType: 'json',
             success: function(result) {
                 $.each(result.data, function(index, value){

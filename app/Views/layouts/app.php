@@ -8,15 +8,15 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="/assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendors/iconly/bold.css">
 
-    <link rel="stylesheet" href="/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="/assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/app.css">
     <?= $this->renderSection('styles') ?>
-    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url() ?>public/assets/images/favicon.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -44,11 +44,11 @@
         <!-- End Main -->
     </div>
 
-    <script src="/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>public/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>public/assets/js/bootstrap.bundle.min.js"></script>
 
     <?= $this->renderSection('javascript') ?>
 
-    <script src="/assets/js/main.js"></script>
+    <script src="<?= base_url() ?>public/assets/js/main.js"></script>
 </body>
 </html>

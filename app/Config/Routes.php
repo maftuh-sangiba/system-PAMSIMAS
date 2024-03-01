@@ -58,4 +58,8 @@ $routes->group('api', function ($routes) {
         $routes->post('check', 'Api\Pembayaran::check');
         $routes->post('pay', 'Api\Pembayaran::pay');
     });
+
+    $routes->group('penggunaan', ['filter' => 'authApi'], function ($routes) {
+        $routes->post('store', 'Api\Penggunaan::store');
+    });
 });

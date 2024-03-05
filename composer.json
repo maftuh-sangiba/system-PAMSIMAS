@@ -16,7 +16,8 @@
         "ext-mbstring": "*",
         "firebase/php-jwt": "^6.4",
         "laminas/laminas-escaper": "^2.9",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "simplesoftwareio/simple-qrcode": "^4.2"
     },
     "require-dev": {
         "codeigniter/coding-standard": "^1.7",

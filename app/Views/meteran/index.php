@@ -46,21 +46,30 @@
                         <tr>
                             <th>Nama Pelanggan</th>
                             <th>Nomor Meteran</th>
+                            <th>Kode Qr</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             foreach ($meteran as $key => $value) {
+                                
+                                $qrcode = new SimpleSoftwareIO\QrCode\Generator;
+                                $qrCodes = $qrcode->size(120)->generate($value->nomor_meteran);
+
                                 echo "<tr>
-                                    <td width='30%'>".$value->name."</td>
+                                    <td width='20%'>".$value->name."</td>
                                     <td width='20%'>".$value->nomor_meteran."</td>
-                                    <td width='20%'>
+                                    <td width='10%'>".$qrCodes."</td>
+                                    <td width='25%'>
                                         <a href='javascript:void(0);' onClick='editData(".$value->id.")' class='btn icon icon-left btn-primary'>
                                             <i class='bi bi-pencil-square'></i> Edit
                                         </a>
                                         <a href='".base_url()."meteran/delete/".$value->id."' class='btn icon icon-left btn-danger'>
                                             <i class='bi bi-trash'></i> Hapus
+                                        </a>
+                                        <a href='".base_url()."meteran/cetak/".$value->id."' class='btn icon icon-left btn-success' target='_blank'>
+                                            <i class='bi bi-printer'></i> Cetak QR
                                         </a>
                                     </td>
                                 </tr>";

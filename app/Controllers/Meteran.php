@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\MeteranModel;
 use App\Models\PenggunaanModel;
-use CodeIgniter\HTTP\ResponseInterface;
+use SimpleSoftwareIO\QrCode\Generator;
 
 class Meteran extends BaseController
 {
@@ -132,5 +132,19 @@ class Meteran extends BaseController
         }
 
         echo json_encode($result);
+    }
+
+    public function cetak($id)
+    {
+        $meteranModel = new MeteranModel();
+        $meteran = $meteranModel->find($id);
+
+        $qrcode = new Generator();
+        $qrCodes = $qrcode->size(200)->generate($meteran['nomor_meteran']);
+
+        return view('meteran/print', [
+            'qrCode' => $qrCodes,
+            'nomorMeteran' => $meteran['nomor_meteran'],
+        ]);
     }
 }

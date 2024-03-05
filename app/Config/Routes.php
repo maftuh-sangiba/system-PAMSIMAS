@@ -30,6 +30,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('delete/(:num)', 'Meteran::delete/$1');
         $routes->get('getData/(:num)', 'Meteran::getData/$1');
         $routes->get('getPelanggan', 'Meteran::getPelanggan');
+        $routes->get('cetak/(:num)', 'Meteran::cetak/$1');
     });
 
     $routes->group('penggunaan', function ($routes) {

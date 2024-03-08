@@ -41,12 +41,10 @@
                             <p class="fs-4 fw-bold">
                                 TAGIHAN PEMBAYARAN
                             </p>
+                            <div class="row mb-2">
+                                <div class="col text-end h6 text-dark">Tanggal : <?= $pembayaran->bulan ?></div>
+                            </div>
                             <table class="text-start mx-auto table table-responsive table-borderless text-dark border border-dark">
-                                <tr>
-                                    <td>Bulan</td>
-                                    <td width="20" class="text-center"> : </td>
-                                    <td><?= $pembayaran->bulan ?></td>
-                                </tr>
                                 <tr>
                                     <td>Nomor Meteran</td>
                                     <td class="text-center"> : </td>
@@ -68,11 +66,31 @@
                                     <td>Rp. <?= $pembayaran->biaya ?></td>
                                 </tr>
                                 <tr>
+                                    <td>Dibayarkan</td>
+                                    <td class="text-center"> : </td>
+                                    <td>Rp. <?= $pembayaran->dibayarkan ?></td>
+                                </tr>
+                                <tr>
                                     <td>Status Pembayaran</td>
                                     <td class="text-center"> : </td>
                                     <td><?= $pembayaran->status ?></td>
                                 </tr>
                             </table>
+                            
+                            <div class="row text-dark fw-bold fs-lg-4 fs-sm-5">
+                                <div class="col text-start">Beban : Rp. <?= BEBAN ?></div>
+                                <div class="col text-end">Harga : Rp. <?= HARGA ?> / <span> m<sup>3</sup></span></div>
+                            </div>
+                            <div class="row h4 text-dark mt-4">
+                                <?php 
+                                    $perluDiabayar = $pembayaran->biaya - $pembayaran->dibayarkan;
+
+                                    if ($pembayaran->status === "Lunas" || $pembayaran->status === "Lunas & Sisa" ) {
+                                        $perluDiabayar = 0; 
+                                    }
+                                ?>
+                                <div class="col">Perlu dibayar : Rp. <?= $perluDiabayar ?></div>
+                            </div>
                         </td>
                     </tr>
                 </tbody>

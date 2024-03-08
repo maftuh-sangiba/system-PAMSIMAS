@@ -47,6 +47,21 @@
                                         </div>
                                     </div>
                                     <div class="row mt-3">
+                                        <h4>Harga & Beban</h4>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Beban Dasar</label>
+                                                <input type="text" class="form-control" value="<?= BEBAN ?>" disabled readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <label for="first-name-column">Harga per <span class="text-muted">m<sup>3</sup></span></label>
+                                                <input type="text" class="form-control" value="<?= HARGA ?>" disabled readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
                                         <div class="col-12">
                                             <h4>Meteran</h4>
                                             <div class="form-group">
@@ -178,13 +193,30 @@
     });
 
     function setPay(valUsed) {
-        let pricePerMeter = 2500;
-        let beban = 1500;
+        let pricePerMeter = <?= HARGA ?>;
+        let beban = <?= BEBAN ?>;
         let lastUsed = $("#used-last").val();
         let finalUsed = valUsed - lastUsed;
 
         let finalPay = finalUsed * pricePerMeter + beban; 
         $("#pay-this").val(finalPay);
     }
+
+    $(".js-select-meteran").on('change', function(e){
+        let meteranId = $(this).val();
+        
+        $.ajax({
+            url: "<?= base_url() ?>penggunaan/getLastMonthData/"+meteranId,
+            type: "GET",
+            dataType: 'json',
+            success: function(result) {
+                $("#used-last").val(result['pemakaian']);
+                $("#pay-last").val(result['biaya']);
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
+            },
+        })
+    });
 </script>
 <?= $this->endSection() ?>

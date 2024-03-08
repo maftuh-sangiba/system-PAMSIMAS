@@ -148,4 +148,16 @@ class Penggunaan extends BaseController
 
         echo json_encode($result);
     }
+
+    public function getLastMonthData($id)
+    {
+        $penggunaanModel = new PenggunaanModel();
+        $data = $penggunaanModel->where('id_meteran', $id)->orderBy('bulan',"desc")->limit(1)->first();
+
+        if (!empty($data)) {
+            return json_encode($data);
+        }
+        
+        return json_encode(['msg' => 'Last data not found']);
+    }
 }

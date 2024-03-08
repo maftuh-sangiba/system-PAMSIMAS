@@ -39,6 +39,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->post('store', 'Penggunaan::store');
         $routes->post('getAllMeteran', 'Penggunaan::getAllMeteran');
         $routes->post('getDataFiltered', 'Penggunaan::getDataFiltered');
+        $routes->get('getLastMonthData/(:num)', 'Penggunaan::getLastMonthData/$1');
     });
 
     $routes->group('pembayaran', function ($routes) {

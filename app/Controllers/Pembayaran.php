@@ -190,4 +190,10 @@ class Pembayaran extends BaseController
             }
         }
     }
+
+    public function cetak($id)
+    {
+        $dataPembayaran = $this->pembayaranModel->getSinglePembayaran($id);
+        return view('pembayaran/cetak', ['pembayaran' => $dataPembayaran]);
+    }
 }

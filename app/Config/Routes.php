@@ -45,6 +45,7 @@ $routes->group('/', ['filter' => 'auth'], function ($routes) {
         $routes->get('/', 'Pembayaran::index');
         $routes->post('getDataFiltered', 'Pembayaran::getDataFiltered');
         $routes->post('bayar', 'Pembayaran::bayar');
+        $routes->get('cetak/(:num)', 'Pembayaran::cetak/$1');
     });
 
     $routes->get('saldo', 'Saldo::index');

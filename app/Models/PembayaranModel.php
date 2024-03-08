@@ -45,4 +45,15 @@ class PembayaranModel extends Model
 
         return $result->get()->getFirstRow()->id;
     }
+
+    public function getSinglePembayaran($id)
+    {
+        $result = $this->db->table($this->table);
+        $result->join($this->table_penggunaan, 'penggunaan.id = pembayaran.id_penggunaan');
+        $result->join($this->table_meteran, 'meteran.id = penggunaan.id_meteran');
+        $result->join($this->table_pelanggan, 'pelanggan.id = meteran.id_pelanggan');
+        $result->where('penggunaan.id', $id);
+
+        return $result->get()->getFirstRow();
+    }
 }

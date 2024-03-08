@@ -153,13 +153,13 @@
                         if (row['status'] === 'Belum Dibayar' || row['status'] === 'Belum Lunas') {
                             let html = `
                             <a href='javascript:void(0);' onClick='bayar(`+data+`)' class='btn icon incon-left btn-primary'><i class='bi bi-cash'></i> Bayar</a>
-                            <a href='javascript:void(0);' onClick='cetak(`+data+`)' class='btn btn-secondary'><i class='bi bi-printer'></i> Cetak</a>
+                            <a href='<?= base_url() ?>pembayaran/cetak/`+data+`' class='btn btn-secondary' target='_blank'><i class='bi bi-printer'></i> Cetak</a>
                             <a href='javascript:void(0);' onClick='kirim(`+data+`)' class='btn btn-success'><i class='bi bi-whatsapp'></i> Kirim</a>
                             `
                             return html;
                         } else {
                             let html = `
-                            <a href='javascript:void(0);' onClick='cetak(`+data+`)' class='btn btn-secondary'><i class='bi bi-printer'></i> Cetak</a>
+                            <a href='<?= base_url() ?>pembayaran/cetak/`+data+`' class='btn btn-secondary' target='_blank'><i class='bi bi-printer'></i> Cetak</a>
                             <a href='javascript:void(0);' onClick='kirim(`+data+`)' class='btn btn-success'><i class='bi bi-whatsapp'></i> Kirim</a>
                             `
                             return html;
@@ -230,13 +230,13 @@
                         if (row['status'] === 'Belum Dibayar' || row['status'] === 'Belum Lunas') {
                             let html = `
                             <a href='javascript:void(0);' onClick='bayar(`+data+`)' class='btn icon incon-left btn-primary'><i class='bi bi-cash'></i> Bayar</a>
-                            <a href='javascript:void(0);' onClick='cetak(`+data+`)' class='btn btn-secondary'><i class='bi bi-printer'></i> Cetak</a>
+                            <a href='<?= base_url() ?>pembayaran/cetak/`+data+`' class='btn btn-secondary' target='_blank'><i class='bi bi-printer'></i> Cetak</a>
                             <a href='javascript:void(0);' onClick='kirim(`+data+`)' class='btn btn-success'><i class='bi bi-whatsapp'></i> Kirim</a>
                             `
                             return html;
                         } else {
                             let html = `
-                            <a href='javascript:void(0);' onClick='cetak(`+data+`)' class='btn btn-secondary'><i class='bi bi-printer'></i> Cetak</a>
+                            <a href='<?= base_url() ?>pembayaran/cetak/`+data+`' class='btn btn-secondary' target='_blank'><i class='bi bi-printer'></i> Cetak</a>
                             <a href='javascript:void(0);' onClick='kirim(`+data+`)' class='btn btn-success'><i class='bi bi-whatsapp'></i> Kirim</a>
                             `
                             return html;
@@ -254,10 +254,6 @@
         console.log(id);
         $("#user_id").val(id);
         $("#modal-bayar").modal("show");
-    }
-
-    function cetak(id){
-        console.log(id);
     }
 
     function kirim(id){
